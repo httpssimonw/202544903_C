@@ -12,7 +12,7 @@ int main()
     FILE*fail;
 
     int count; //pass count
-    fp= fopen("student.txt", "w");
+    fp= fopen("students.txt", "w");
     
     if(fp==NULL){
         printf("File open error");
@@ -31,14 +31,14 @@ int main()
     fclose(fp);
 
     // STUDENTS.TXT FILE
-    fp = popen("students.txt", "r");
+    fp = fopen("students.txt", "r");
     //pass and fail, sorting
     pass = fopen("pass.txt", "w");
     fail = fopen("fail.txt", "w");
 
     if (fp == NULL || pass == NULL || fail == NULL){
         printf("File open error");
-        if (fp != NULL) pclose(fp);
+        if (fp != NULL) fclose(fp);
         if (pass != NULL) fclose(pass);
         if (fail != NULL) fclose(fail);
 
